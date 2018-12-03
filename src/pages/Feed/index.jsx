@@ -7,7 +7,7 @@ import Main from './Main';
 import MyEventsOrAll from './MyEventsOrAll';
 import AllFavorites from './AllFavorites';
 
-const types = ['course', 'event', 'video', 'article'];
+const types = ['swimming', 'running', 'event'];
 
 const feedData = [...new Array(10)].map((el, i) => {
   const type = types[Math.floor(Math.random() * types.length)];

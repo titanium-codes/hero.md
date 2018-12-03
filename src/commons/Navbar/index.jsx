@@ -13,14 +13,17 @@ const Navbar = ({ history }) => {
 }) => (
   <Link className={styles.menueButton} to={path} key={title}>
     <div className={styles.iconWithCircle}>
-      {pathname === path && <styles.Circle color={color} left={left} top={top} />}
+      {pathname.includes(path) && <styles.Circle color={color} left={left} top={top} />}
       <img src={bg} alt={title} />
     </div>
-    <styles.ButtonName color={pathname === path ? color : ''}>{title}</styles.ButtonName>
+    <styles.ButtonName color={pathname.includes(path) ? color : ''}>
+      {title}
+    </styles.ButtonName>
   </Link>
         ))}
       </div>
     </div>
   );
 };
+
 export default Navbar;

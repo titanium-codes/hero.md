@@ -7,7 +7,7 @@ import buz from 'media/buz.svg';
 
 const navbarItems = [
   {
-    title: 'MY PROFILE',
+    title: 'my profile',
     path: '/my-profile',
     color: '#ffbe00',
     left: '-8px',

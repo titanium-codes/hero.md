@@ -4,9 +4,11 @@ import styled from 'react-emotion';
 export const body = css`
   box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.06), 0 0 15px 0 rgba(0, 0, 0, 0.06);
   position: fixed;
+  background-color: white;
   width: 100vw;
   height: 80px;
   font-family: Intro;
+  z-index: 2;
   img {
     height: 24px;
     width: 24px;
@@ -44,7 +46,6 @@ export const container = css`
 
 export const menueButton = css`
   color: rgba(0, 0, 0, 0.54);
-  font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: center;

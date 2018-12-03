@@ -1,6 +1,6 @@
 import { css } from 'emotion';
 import styled from 'react-emotion';
-import { yellow } from 'constants/colors';
+import { yellow, purple, orange } from 'constants/colors';
 
 export const body = css`
   svg {
@@ -62,11 +62,10 @@ export const latest = css`
 export const latestTitle = css`
   height: auto;
   padding: 10px;
-  color: ${yellow};
-  font-size: 14px;
+  color: ${purple};
+  font-size: 12px;
   letter-spacing: 0.4px;
-  /* position: fixed;
-  top: 95px; */
+  font-family: 'Intro';
 `;
 
 export const favoriteIcon = css`
@@ -91,12 +90,12 @@ export const LatestContent = styled('div')`
     justify-content: center;
     font-size: 12px;
     flex-direction: column;
-    color: #ffffff;
     box-sizing: border-box;
     width: 55%;
     height: 39%;
     opacity: 0.8;
-    background-color: #5b7189;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.87);
     bottom: 0;
     left: 0;
     position: absolute;
@@ -111,7 +110,7 @@ export const LatestContent = styled('div')`
       display: flex;
       align-items: center;
       letter-spacing: 0.4px;
-      color: #ffffff;
+      color: rgba(0, 0, 0, 0.87);
       margin: 0;
       svg {
         height: 18px;
@@ -119,6 +118,14 @@ export const LatestContent = styled('div')`
         margin-left: -3px;
         margin-top: -1px;
       }
+    }
+    .title {
+      font-family: 'Intro';
+      color: rgba(0, 0, 0, 0.87);
+    }
+    .date {
+      font-family: 'Intro';
+      color: rgba(0, 0, 0, 0.54);
     }
   }
 `;
@@ -162,13 +169,16 @@ export const mainInfo = css`
   height: auto;
   position: relative;
   padding: 10px;
+  color: rgba(0, 0, 0, 0.87);
+  .date {
+    font-family: 'Intro';
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: rgba(0, 0, 0, 0.54);
+  }
 `;
 export const iWantIt = css`
-  border-radius: 25px !important;
-  text-transform: none !important;
-  position: absolute !important;
-  top: 10px;
-  right: 10px;
+  border-radius: 5px !important;
   width: 150px;
   height: 36px !important;
   min-height: 36px !important;
@@ -219,13 +229,14 @@ export const actionButtons = css`
 export const sortEventsButtons = css`
   display: flex;
   justify-content: space-between;
+  font-family: 'Intro';
   div {
-    font-size: 14px;
+    font-size: 12px;
     margin-right: 23px;
   }
   button {
     text-transform: none;
-    font-size: 14px;
+    font-size: 12px;
   }
 `;
 
@@ -369,78 +380,45 @@ export const favoriteName = css`
   font-size: 14px;
 `;
 
-export const newPostContainer = css`
-  border-radius: 3px;
-  box-sizing: border-box;
-  position: relative;
-  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.06), 0 0 15px 0 rgba(0, 0, 0, 0.06);
-  width: 100%;
-  height: auto;
-  margin-right: 10px;
+export const applyForMentor = css`
+  padding: 20px;
   margin-bottom: 15px;
-  font-size: 14px;
-  .header {
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-    padding: 0 10px;
-    height: 36px;
-    background-color: rgba(93, 112, 133, 0.95);
+  border-radius: 3px;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.06), 0 0 15px 0 rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+  display: flex;
+  align-items: flex-start;
+  .question {
+    font-family: Intro;
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #7986cb;
+    width: 90%;
+    cursor: pointer;
+  }
+  .form {
+    width: 90%;
+  }
+  button {
+    height: 36px !important;
+    width: 150px !important;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.18);
+  }
+  .cancel {
+    background-color: white;
+    color: ${orange};
+    border: 2px solid ${orange};
+    margin-right: 15px;
+    &:hover {
+      background-color: ${orange};
+      color: white;
+    }
+  }
+  .send {
+    background-color: ${orange};
     color: white;
-    display: flex;
-    align-items: center;
-    div {
-      margin-right: 15px;
-      font-size: 14px;
-      letter-spacing: 0.5px;
-    }
-  }
-
-  .modal {
-    box-sizing: border-box;
-    display: none;
-    height: auto;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    z-index: 3;
-    background-color: white;
-    padding: 10px;
-    padding-top: 0;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-
-    button {
-      float: right;
-      border-radius: 30px;
-      min-width: 120px;
-    }
-  }
-
-  .content {
-    padding: 10px;
-    /* padding-bottom: 0; */
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    background-color: white;
-    textarea {
-      font-size: 14px;
-      width: 100%;
-      outline: none;
-      border: none;
-      caret-color: ${yellow};
-      resize: none;
-      padding: 0;
-      display: block;
-      box-sizing: padding-box;
-      overflow: hidden;
-      font-family: 'Roboto', serif;
-    }
-    textarea::placeholder {
-      font-size: 14px;
-    }
-    #title {
-      margin-bottom: 5px;
-    }
+    border: none;
   }
 `;
 export const formInputs = css`

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './globaleStyle.css';
 import Routes from './Routes';
 import * as serviceWorker from './serviceWorker';

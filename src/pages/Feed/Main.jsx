@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { yellow } from 'constants/colors';
 import * as styles from './style';
-import NewPost from './NewPost';
+import ApplyForMentor from './ApplyForMentor';
 
 class Main extends React.Component {
   state = { viewAllInfoId: [] };
@@ -27,14 +27,14 @@ class Main extends React.Component {
 
   render() {
     const {
-      data, history, wantAnEvent, detailsFor, handleAllFavorites
+      data, wantAnEvent, detailsFor, handleAllFavorites
     } = this.props;
 
     const { viewAllInfoId } = this.state;
 
     return (
       <div className={styles.main}>
-        <NewPost />
+        <ApplyForMentor />
         {data.map(({
  date, title, favorite, favorites, bg, id, type, iWantIt, description
 }) => (
@@ -42,7 +42,19 @@ class Main extends React.Component {
     <styles.MainContent>
       <styles.Image bg={bg} />
       <div className={styles.mainInfo}>
-        <p>{date}</p>
+        <Grid container justify="space-between">
+          <p className="date">{date}</p>
+          {type === 'event' && (
+          <Button
+            color="primary"
+            variant={iWantIt ? 'contained' : 'outlined'}
+            className={`${styles.iWantIt} ${!iWantIt ? styles.outlinedIWantIt : ''}`}
+            onClick={() => wantAnEvent(id)}
+          >
+                      I want it
+          </Button>
+                  )}
+        </Grid>
         <styles.MainTitle
           color={detailsFor.includes(id) ? yellow : 'rgba(0, 0, 0, 0.87)'}
           onClick={() => this.handleDetails(id)}
@@ -97,26 +109,6 @@ class Main extends React.Component {
           </div>
         </Grid>
                 )}
-        {type === 'event' && (
-        <Button
-          color="primary"
-          variant={iWantIt ? 'contained' : 'outlined'}
-          className={`${styles.iWantIt} ${!iWantIt ? styles.outlinedIWantIt : ''}`}
-          onClick={() => wantAnEvent(id)}
-        >
-                    I want it
-        </Button>
-                )}
-        {type === 'course' && (
-        <Button
-          color="primary"
-          variant="contained"
-          className={styles.iWantIt}
-          onClick={() => history.push(`/courses/${id}`)}
-        >
-                    Apply now
-        </Button>
-                )}
       </div>
     </styles.MainContent>
   </React.Fragment>
@@ -128,7 +120,6 @@ class Main extends React.Component {
 
 Main.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
-  favoriteAnEvent: PropTypes.func.isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
   wantAnEvent: PropTypes.func.isRequired,
   detailsFor: PropTypes.arrayOf(PropTypes.number).isRequired,

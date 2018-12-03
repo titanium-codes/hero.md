@@ -3,7 +3,7 @@ import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { FirstSignUp, Navbar } from 'commons';
 import * as route from 'constants/urls';
 import { css } from 'emotion';
-import { Home, Feed, MyProfile } from './pages';
+import { Home, Feed, MyProfile, Buddy, BuddyProfile, Live } from './pages';
 import history from './history';
 
 const margin = css`
@@ -47,6 +47,9 @@ const Routes = () => (
             )}
           />
           <Route exact path={route.MY_PROFILE} component={MyProfile} />
+          <Route exact path={route.BUDDY} component={Buddy} />
+          <Route exact path={route.BUDDY_PROFILE} component={BuddyProfile} />
+          <Route exact path={route.LIVE} component={Live} />
         </Switch>
       </div>
     </>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { yellow } from 'constants/colors';
+import { purple } from 'constants/colors';
 import calendarIcon from 'media/calendar.svg';
 import { css } from 'emotion';
 import * as styles from './style';
@@ -45,16 +45,16 @@ class MyEventsOrAll extends React.Component {
     const { tab, showCalendar } = this.state;
 
     const colorMy = css`
-      color: ${tab === 0 ? yellow : 'rgba(0, 0, 0, 0.87)'};
+      color: ${tab === 0 ? purple : 'rgba(0, 0, 0, 0.87)'};
       cursor: pointer;
     `;
     const colorAll = css`
-      color: ${tab === 1 ? yellow : 'rgba(0, 0, 0, 0.87)'};
+      color: ${tab === 1 ? purple : 'rgba(0, 0, 0, 0.87)'};
       cursor: pointer;
     `;
 
     const colorLatest = css`
-      color: ${tab === 2 ? yellow : 'rgba(0, 0, 0, 0.87)'};
+      color: ${tab === 2 ? purple : 'rgba(0, 0, 0, 0.87)'};
       cursor: pointer;
     `;
 

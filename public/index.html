@@ -11,6 +11,7 @@
     -->
     <link rel="stylesheet" href="styles/globalStyles.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500" rel="stylesheet" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -22,6 +23,38 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>HERO</title>
+    <script>
+      const types = ['swimming', 'running', 'event'];
+
+      const feedData = [...new Array(10)].map((el, i) => {
+        const type = types[Math.floor(Math.random() * types.length)];
+        return {
+          id: i,
+          type,
+          title: `${type} ${i + 1}`,
+          date: 'MON 12/11/2018',
+          bg:
+            type === 'event'
+              ? 'https://s3.eu-west-3.amazonaws.com/be-hero/feed.png'
+              : 'https://s3.eu-west-3.amazonaws.com/be-hero/photo.png',
+          favorite: i % 2 === 0,
+          iWantIt: i % 3 === 0,
+          favorites: [...new Array(i * 2)].map((person, j) => ({
+            id: i + 1,
+            name: `Person ${j + 1}`,
+            avatar: `https://s3.eu-west-3.amazonaws.com/be-hero/person-${j + 1}.png`,
+            domain: 'JS Developer'
+          })),
+          description: `
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry`
+        };
+      });
+      localStorage.setItem('data', JSON.stringify(feedData));
+    </script>
   </head>
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>

@@ -8,3 +8,11 @@ body,html {
     color: rgba(0, 0, 0, 0.87) !important;
 }
 
+@font-face {
+    font-family:"Intro";
+    src:url("media/fonts/Intro.otf") format("otf"),
+        url("media/fonts/Intro.woff") format("woff"),
+        url("media/fonts/Intro.ttf") format("truetype");
+        font-weight:normal;
+        font-style:normal;
+    }

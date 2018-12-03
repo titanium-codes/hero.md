@@ -37,29 +37,22 @@ const Form = ({
         />
         <Field
           disabled={!editable}
-          label="Domain"
-          name="domain"
+          label="Facebook"
+          name="facebook"
           type="text"
           component={renderInput}
         />
         <Field
           disabled={!editable}
-          label="Portfolio"
-          name="portfolio"
+          label="Telegram"
+          name="telegram"
           type="text"
           component={renderInput}
         />
         <Field
           disabled={!editable}
-          label="Experience"
-          name="experience"
-          type="text"
-          component={renderInput}
-        />
-        <Field
-          disabled={!editable}
-          label="Discord"
-          name="discord"
+          label="Personal Site"
+          name="personalSite"
           type="text"
           component={renderInput}
         />

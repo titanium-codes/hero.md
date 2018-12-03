@@ -10,8 +10,8 @@ const FiltredEvents = ({ data, latest }) => (
 }) => (
   <styles.LatestContent bg={bg} key={id}>
     <div className="info">
-      <p>{date}</p>
-      <p>{title.length > 20 ? `${title.substr(0, 20)} ...` : title}</p>
+      <p className="date">{date}</p>
+      <p className="title">{title.length > 20 ? `${title.substr(0, 20)} ...` : title}</p>
       <div>{favorites.length} interested</div>
     </div>
   </styles.LatestContent>
